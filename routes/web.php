@@ -13,19 +13,8 @@
 |
 */
 
-// When no router matches
-$router->addRoute(['GET','POST', 'PUT', 'PATCH', 'DELETE','OPTIONS'], '', 'Controller@badRequest');
-
-$router->group(['prefix' => ''], function () use ($router) {
-
-    $controller = 'MyModelController@whateverMethod';
-
-    $router->get('/{route:.*}/', $controller);
-    $router->post('/{route:.*}/', $controller);
-    $router->put('/{route:.*}/', $controller);
-    $router->patch('/{route:.*}/', $controller);
-    $router->delete('/{route:.*}/', $controller);
-
+$router->get('/', function () use ($router) {
+    return 'hello';
 });
 
 // API route group
